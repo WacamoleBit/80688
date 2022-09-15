@@ -7,17 +7,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        h1, p {
+        h1 {
             font-size: 15px;
             color: green;
+        }
+
+        span {
+            color: aquamarine;
+        }
+
+        #p1 {
+            color: red;
+        }
+
+        #p2 {
+            color: yellow;
+        }
+
+        #p3 {
+            color: blue;
+        }
+
+        .peso {
+            font-weight: bold;
+        }
+
+        .ui {
+            color: white;
+            padding: 10px;
+        }
+        
+        #borrar {
+            background-color: red;
+        }
+
+        #borrar:hover {
+            background-color: gray;
+        }
+
+        .ui:active {
+            background-color: black;
+        }
+
+        #cambiar {
+            background-color: green;
+        }
+
+        #guardar {
+            background-color: blue;
         }
     </style>
     <link rel="stylesheet" href="practica02.css">
 </head>
 
 <body>
+    <div><input type="button" value="borrar datos" id="borrar" class="ui"><input type="button" value="cambiar datos" id="cambiar"
+            class="ui"><input type="button" value="guardar datos" id="guardar" class="ui"></div>
     <h1>Titulo de nivel 1</h1>
-    <p><span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, repudiandae, corporis porro soluta
+    <p><span id="p1" class="peso">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, repudiandae, corporis
+            porro soluta
             temporibus enim autem natus reiciendis quibusdam dolores sit fugiat? Recusandae ut neque rem nesciunt qui.
             Inventore, impedit?</span><span>Atque molestias nam eius reprehenderit quia doloremque provident, officia
             commodi at similique voluptates qui sunt magni ab, accusantium consequuntur corporis ad? Debitis odit nam
@@ -29,6 +77,24 @@
             incidunt!</span><span>Doloremque praesentium nesciunt nihil repellat amet est iusto excepturi reprehenderit
             quaerat illum, natus officiis necessitatibus, libero porro, sequi laborum suscipit. Maiores porro nulla
             maxime modi inventore? Nemo ipsam qui numquam.</span></p>
+    <p><span id="p2" class="peso">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus dignissimos
+            numquam veniam unde,
+            distinctio quasi architecto laudantium tempore esse itaque nesciunt, molestias cupiditate et nostrum
+            reprehenderit labore, consequatur illum est?</span><span>Illo facere, enim beatae vero necessitatibus
+            officiis deserunt debitis delectus nisi aut aspernatur reiciendis blanditiis perspiciatis magni obcaecati.
+            Dolorem provident voluptatibus quam modi eum a consequuntur tempora excepturi officia
+            officiis!</span><span>Perferendis, inventore architecto officia cupiditate minima incidunt repellendus nemo
+            laudantium doloribus quas dignissimos. Neque sequi dolorem unde aspernatur quo quod optio accusamus
+            provident recusandae natus impedit rerum culpa, voluptatum et.</span></p>
+    <div><span id="p3" class="peso">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti deleniti molestiae
+            eum? Esse vero
+            itaque soluta quis magni quaerat labore pariatur accusamus quo aut, sed sit quod ullam? Soluta,
+            quam?</span><span>Doloribus eligendi excepturi laboriosam velit! A, eos facere. Architecto nulla nemo
+            magnam, perferendis aliquid, in iste dolorem assumenda consequuntur nisi veritatis deleniti soluta est
+            quidem? Voluptatem temporibus magnam voluptatum inventore?</span><span>Voluptas sequi, earum nostrum,
+            laudantium corporis animi soluta quidem maiores similique inventore esse qui delectus unde, voluptatibus
+            corrupti facilis nobis. Natus, maiores atque quibusdam consequuntur adipisci porro sit ex rerum!</span>
+    </div>
 </body>
 
 </html>
