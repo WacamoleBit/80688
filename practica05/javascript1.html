@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTY PE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
         }
 
         function cambiarColores(color){
-            console.log("Color recibido: " + color)
+            //console.log("Color recibido: " + color)
             var htmlcollection = document.getElementsByTagName("h1")
             var c = [].slice.call(htmlcollection);
 
@@ -27,8 +27,21 @@
 
             c.forEach(element => {
                 element.style.color = color;
-                console.log(element);
+                //console.log(element);
             });
+
+            // let i = 0;
+            // for (const p in c) {
+            //     if (i < c.lenght) {
+            //         c[p].style.color = color;      
+            //     }
+            // }
+
+            for (const x in c) {
+                if (Object.hasOwnProperty.call(c, x)) {
+                    const element = c[x].style.color = color;
+                }
+            }
         }
     </script>
 </head>
