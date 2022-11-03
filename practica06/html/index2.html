@@ -25,7 +25,11 @@
             q.append("login", l)
             q.append("password", p)
 
-            axios.post("http://localhost:4567", q)
+            // axios.post("http://localhost:4567", q)
+            axios.post("http://localhost:4567", {
+                login: l,
+                password: p
+            })
             .then(function (res) {
                 console.log(res);
                 // alert (res.data.msj + " " + res.data.usuario);

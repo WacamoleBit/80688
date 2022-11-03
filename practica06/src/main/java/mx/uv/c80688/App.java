@@ -1,7 +1,9 @@
 package mx.uv.c80688;
 import static spark.Spark.*;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 /**
  * Hello world!
@@ -32,10 +34,20 @@ public class App
         get("/", (req, res) -> "<h1>Hola Sistemas Web</h1>");
         post("/", (req, res) -> {
             String usuario = null;
-            System.out.println("login: " + req.queryParams("login"));
-            System.out.println("password: " + req.queryParams("password"));
-            usuario = req.queryParams("login");
+            // System.out.println("login: " + req.queryParams("login"));
+            // System.out.println("password: " + req.queryParams("password"));
+            // usuario = req.queryParams("login");
+            System.out.println(req.body());
             
+            // procesar petición json
+            JsonParser parser = new JsonParser();
+            JsonElement arbol = parser.parse(req.body());
+            JsonObject peticionDelCliente = arbol.getAsJsonObject();
+            usuario = peticionDelCliente.get("login").getAsString();
+            System.out.println(peticionDelCliente.get("login").getAsString());
+            System.out.println(peticionDelCliente.get("password").getAsString());
+            //modificar para aceptar tanto formato json como urlcode
+
             JsonObject respuesta = new JsonObject();
             respuesta.addProperty("msj", "Bienvenido");
             respuesta.addProperty("usuario", usuario);
