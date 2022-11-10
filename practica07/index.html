@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="ID">ID</label>
+        <input type="text" id="id1">
+
+        <label for="nombre">Nombre</label>
+        <input type="text" id="id2">
+
+        <label for="password">Password</label>
+        <input type="text" id="id3">
+        <button type="button" id="boton">Enviar</button>
+
+        <script>
+            var bEnviar = document.getElementById("boton")
+            bEnviar.addEventListener("click", function() {
+                let id = document.getElementById("id1").value
+                let nombre = document.getElementById("id2").value
+                let password = document.getElementById("id3").value
+
+                console.log("ID: " + id + ", nombre: " + nombre + ", password: " + password);
+                axios.post("http://localhost:4567", {
+                    id: id,
+                    nombre: nombre,
+                    password: password
+                })
+                .then(function (response) {
+                    console.log(response)
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+            })
+        </script>
+    </form>
+</body>
+</html>

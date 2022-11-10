@@ -19,17 +19,18 @@
     <script>
         var bLogin = document.getElementById("entrar");
         bLogin.addEventListener("click", function () {
+            let q = new URLSearchParams();
             let l = document.getElementById("login").value;
             let p = document.getElementById("password").value;
-            let q = new URLSearchParams();
             q.append("login", l)
             q.append("password", p)
+            console.log(q.entries.length)
 
-            // axios.post("http://localhost:4567", q)
-            axios.post("http://localhost:4567", {
-                login: l,
-                password: p
-            })
+            axios.post("http://localhost:4567", q)
+            // axios.post("http://localhost:4567", {
+            //     login: l,
+            //     password: p
+            // })
             .then(function (res) {
                 console.log(res);
                 // alert (res.data.msj + " " + res.data.usuario);

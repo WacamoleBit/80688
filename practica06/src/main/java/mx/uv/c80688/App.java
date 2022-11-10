@@ -36,17 +36,26 @@ public class App
             String usuario = null;
             // System.out.println("login: " + req.queryParams("login"));
             // System.out.println("password: " + req.queryParams("password"));
-            // usuario = req.queryParams("login");
-            System.out.println(req.body());
-            
-            // procesar petición json
-            JsonParser parser = new JsonParser();
-            JsonElement arbol = parser.parse(req.body());
-            JsonObject peticionDelCliente = arbol.getAsJsonObject();
-            usuario = peticionDelCliente.get("login").getAsString();
-            System.out.println(peticionDelCliente.get("login").getAsString());
-            System.out.println(peticionDelCliente.get("password").getAsString());
-            //modificar para aceptar tanto formato json como urlcode
+            // System.out.println("body: " + req.body());
+            if(!req.body().isEmpty()) {
+                // procesar petición json
+
+                System.out.println("json");
+                JsonParser parser = new JsonParser();
+                JsonElement arbol = parser.parse(req.body());
+                JsonObject peticionDelCliente = arbol.getAsJsonObject();
+
+                usuario = peticionDelCliente.get("login").getAsString();
+
+                System.out.println(peticionDelCliente.get("login").getAsString());
+                System.out.println(peticionDelCliente.get("password").getAsString());
+                //modificar para aceptar tanto formato json como urlcode
+            } else {
+                System.out.println("urlcode");
+                System.out.println("login: " + req.queryParams("login"));
+                System.out.println("password: " + req.queryParams("password"));
+                usuario = req.queryParams("login");
+            }
 
             JsonObject respuesta = new JsonObject();
             respuesta.addProperty("msj", "Bienvenido");
