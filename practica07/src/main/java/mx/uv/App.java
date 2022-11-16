@@ -3,6 +3,7 @@ package mx.uv;
 import static spark.Spark.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
@@ -12,19 +13,26 @@ import com.google.gson.Gson;
  */
 public class App 
 {
-    private static Map<String, Usuario> usuarios = new HashMap<>();
+    // private static Map<String, Usuario> usuarios = new HashMap<>();
+    private static List<Usuario> usuarios = null;
+    // private static Conexion c = null;
     public static Gson gson = new Gson();
     public static void main( String[] args )
     {
+        // c = new Conexion();
+        // c.getConnection();
+        DAO dao = new DAO();
+        usuarios = dao.dameUsuarios();
         //port(80);
         before ("/", (req, res) -> res.header("Access-Control-Request-Headers", "*"));
         before ("/", (req, res) -> res.header("Access-Control-Allow-Origin", "*"));
         System.out.println( "Hello World!" );
-        Usuario u1 = new Usuario("1", "Pedro", "1234");
-        Usuario u2 = new Usuario("2", "Pablo", "7890");
+        // Usuario u1 = new Usuario("1", "Pedro", "1234");
+        // Usuario u2 = new Usuario("2", "Pablo", "7890");
 
-        usuarios.put(u1.getId(), u1);
-        usuarios.put(u2.getId(), u2);
+        // usuarios.put(u1.getId(), u1);
+        // usuarios.put(u2.getId(), u2);
+
 
         before((req, res) -> res.type("application/json"));
 	    get("/", (req, res) -> gson.toJson(usuarios));
@@ -32,7 +40,7 @@ public class App
         post("/", (req, res) -> {
             String datosCliente = req.body();
             Usuario u = gson.fromJson(datosCliente, Usuario.class);
-            usuarios.put(u.getId(), u);
+            // usuarios.put(u.getId(), u);
             
             return "listo se ingresó el usuario " + u.getId();
         });
